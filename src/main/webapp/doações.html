@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formulário de Doação</title>
+  <link rel="stylesheet" href="doações.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div id="navbar-container"></div>
+
+  <!-- FORMULÁRIO ÚNICO -->
+  <form id="form-doacao" action="cadastrarDoacao" method="POST">
+    <h2>Formulário de Doação</h2>
+    <ul id="caixa-erros" style="color: red;"></ul>
+
+    <!-- Etapa 1: Doações -->
+    <div class="step active" id="step1">
+      <div class="caixa">
+        <p><strong>O que deseja doar?</strong></p>
+
+        <div class="item-doacao">
+          <label><input type="checkbox" name="doacoes" value="Roupas"> Roupas</label>
+          <input type="number" name="quant_Roupas" min="1" placeholder="Qtd" class="quantidade">
+        </div>
+
+        <div class="item-doacao">
+          <label><input type="checkbox" name="doacoes" value="Calçados"> Calçados</label>
+          <input type="number" name="quant_Calçados" min="1" placeholder="Qtd" class="quantidade">
+        </div>
+
+        <div class="item-doacao">
+          <label><input type="checkbox" name="doacoes" value="Livros"> Livros</label>
+          <input type="number" name="quant_Livros" min="1" placeholder="Qtd" class="quantidade">
+        </div>
+
+        <div class="item-doacao">
+          <label><input type="checkbox" name="doacoes" value="Brinquedos"> Brinquedos</label>
+          <input type="number" name="quant_Brinquedos" min="1" placeholder="Qtd" class="quantidade">
+        </div>
+
+        <div class="item-doacao">
+          <label><input type="checkbox" name="doacoes" value="Alimentos"> Alimentos</label>
+          <input type="number" name="quant_Alimentos" min="1" placeholder="Qtd" class="quantidade">
+        </div>
+
+        <br>
+        <label>
+          <p style="font-size: 14px;">Outro tipo de produto</p>
+          <input type="text" id="outroItem" name="outroItem" placeholder="Informe outro tipo de produto">
+          <input type="number" name="quant_outro" min="1" placeholder="Qtd" class="quantidade">
+        </label>
+
+        <button type="button" id="btnProxima">Próxima Etapa</button>
+
+        <!-- ✅ Corrigido: div de erro estava faltando -->
+        <div id="mensagem-erro" class="mensagem-erro" style="display: none;"></div>
+      </div>
+    </div>
+
+    <!-- Etapa 2: Dados do doador -->
+    <div class="step" id="step2">
+      <div class="caixa">
+        <p><strong>Endereço para retirada</strong></p>
+        <br>
+
+        <div class="form-grid">
+          <label>Nome completo:* <input type="text" id="nome" name="nome" required></label>
+          <label>CEP:* <input type="text" id="cep" name="cep" required></label>
+          <label>Rua:* <input type="text" id="rua" name="rua" required></label>
+          <label>Número:* <input type="number" id="numero" name="numero" required></label>
+          <label>Complemento:* <input type="text" id="complemento" name="complemento" required></label>
+          <label>Bairro:* <input type="text" id="bairro" name="bairro" required></label>
+          <label>Cidade:* <input type="text" id="cidade" name="cidade" required></label>
+          <label>Estado:* <input type="text" id="uf" name="uf" required></label>
+          <label>Telefone:* <input type="text" id="telefone" name="telefone" maxlength="15" required></label>
+          <label>Email:* <input type="email" id="email" name="email" required></label>
+          <label class="mensagem">
+            Mensagem ao motorista/ONG:
+            <textarea id="mensagem" name="mensagem" rows="4" placeholder="Ex: campainha quebrada, horário..."></textarea>
+          </label>
+        </div>
+
+        <button type="submit">Enviar Doação</button>
+        <button type="button" onclick="voltarEtapa()">Voltar</button>
+      </div>
+    </div>
+  </form>
+
+  <!-- JS FINAL -->
+  <script src="doacoes.js"></script>
+
+  <!--navbar compartilhada-->
+    <script>
+        fetch('nav.html')
+        .then(response => response.text())
+        .then(data => {
+        document.getElementById('navbar-container').innerHTML = data;
+
+        // roda o código do nav.js aqui, porque agora a navbar está no DOM
+        $(".sub-btn").click(function () {
+            $(this).next(".sub-menu").slideToggle();
+        });
+        $(".more-btn").click(function () {
+            $(this).next(".more-menu").slideToggle();
+        });
+
+        var menu = document.querySelector(".menu");
+        var menuBtn = document.querySelector(".menu-btn");
+        var closeBtn = document.querySelector(".close-btn");
+
+        if(menuBtn && closeBtn && menu) {
+            menuBtn.addEventListener("click", () => {
+            menu.classList.add("active");
+            });
+            closeBtn.addEventListener("click", () => {
+            menu.classList.remove("active");
+            });
+        }
+
+        window.addEventListener("scroll", function () {
+            var header = document.querySelector("header");
+            if(header){
+            header.classList.toggle("sticky", window.scrollY > 0);
+            }
+        });
+
+        });
+    </script>
+<!---->
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro - Solicitar Caixa</title>
+  <link rel="stylesheet" href="formCaixa.css">
+</head>
+<body>
+  <!--navbar compartilhada-->
+  <div id="navbar-container"></div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <!----------------------FORMULÁRIO------------------------->
+  <form id="form-caixa" method="post" action="solicitarCaixa">
+    <h2>Formulário para Solicitação de Caixa</h2>
+
+    <div class="step" id="step2">
+      <div class="caixa">
+
+        <div class="form-grid">
+          <label for="nome">
+            Nome completo:*
+            <input type="text" id="nome" name="nome" placeholder="Ex: Maria dos Santos Oliveira" required>
+          </label>
+          <label>
+            CEP:*
+            <input type="text" id="cep" name="cep" placeholder="00000-000" required>
+          </label>
+          <label>
+            Rua:*
+            <input type="text" id="rua" name="rua" placeholder="Ex: Rua das Flores" required>
+          </label>
+          <label>
+            Número:*
+            <input type="number" id="numero" name="numero" placeholder="Ex: 123" required>
+          </label>
+          <label>
+            Complemento:*
+            <input type="text" id="complemento" name="complemento" placeholder="Ex: apartamento, bloco, casa" required>
+          </label>
+          <label>
+            Bairro:*
+            <input type="text" id="bairro" name="bairro" placeholder="Ex: Centro, Jardim das Palmeiras" required>
+          </label>
+          <label>
+            Cidade:*
+            <input type="text" id="cidade" name="cidade" placeholder="Ex: São Paulo, Fortaleza" required>
+          </label>
+          <label>
+            Estado:*
+            <input type="text" id="uf" name="uf" placeholder="Ex: CE, SP" required>
+          </label>
+          <label>
+            Unidade, empresa ou condomínio:*
+            <input type="text" id="rede" name="rede" placeholder="Ex: Supermercado Jean" required>
+          </label>
+          <label>
+            Telefone para contato:*
+            <input type="text" id="telefone" name="telefone" maxlength="15" placeholder="(XX) 9 XXXX-XXXX" required>
+          </label>
+          <label>
+            Email:*
+            <input type="email" id="email" name="email" placeholder="Ex: seuemail@dominio.com" required>
+          </label>
+          <label>
+            Quantas caixas você precisa?*
+            <input type="number" id="caixa" name="caixa" placeholder="Ex: 1, 2, 3..." required>
+          </label>
+
+          <div class="caixacoleta">
+            <strong>Itens que esse ponto coleta:</strong>
+
+            <div class="lista-itens">
+              <label class="item-doacao">
+                <input type="checkbox" name="itens" value="Roupas"> Roupas
+              </label>
+              <label class="item-doacao">
+                <input type="checkbox" name="itens" value="Calçados"> Calçados
+              </label>
+              <label class="item-doacao">
+                <input type="checkbox" name="itens" value="Livros"> Livros
+              </label>
+              <label class="item-doacao">
+                <input type="checkbox" name="itens" value="Brinquedos"> Brinquedos
+              </label>
+              <label class="item-doacao">
+                <input type="checkbox" name="itens" value="Alimentos"> Alimentos
+              </label>
+            </div>
+
+            <p>Não achou o que quer doar? Escreva abaixo</p>
+            <label for="outro">Outro:</label>
+            <input type="text" id="outro" name="outro" placeholder="Informe outro tipo de produto">
+          </div>
+
+          <label class="mensagem">
+            Observação:
+            <textarea id="mensagem" name="mensagem" rows="4" placeholder="Informe uma observação, se necessário."></textarea>
+          </label>
+        </div>
+
+        <div class="form-footer">
+          <button type="submit" class="btn-enviar">Enviar</button>
+          <div id="mensagem-erro" class="mensagem-erro" style="display: none;"></div>
+        </div>
+
+      </div>
+    </div>
+  </form>
+
+  <!-------------------------------------------------------------------------------------------------->
+
+  <!--SCRIPT------------------------------------------------------>
+  <script src="formCaixa.js"></script>
+
+  <!--------------------------------------------------------------->
+
+  <!--navbar compartilhada-->
+  <script>
+    fetch('nav.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('navbar-container').innerHTML = data;
+
+      $(".sub-btn").click(function () {
+        $(this).next(".sub-menu").slideToggle();
+      });
+      $(".more-btn").click(function () {
+        $(this).next(".more-menu").slideToggle();
+      });
+
+      var menu = document.querySelector(".menu");
+      var menuBtn = document.querySelector(".menu-btn");
+      var closeBtn = document.querySelector(".close-btn");
+
+      if(menuBtn && closeBtn && menu) {
+        menuBtn.addEventListener("click", () => {
+          menu.classList.add("active");
+        });
+        closeBtn.addEventListener("click", () => {
+          menu.classList.remove("active");
+        });
+      }
+
+      window.addEventListener("scroll", function () {
+        var header = document.querySelector("header");
+        if(header){
+          header.classList.toggle("sticky", window.scrollY > 0);
+        }
+      });
+
+    });
+  </script>
+</body>
+</html>

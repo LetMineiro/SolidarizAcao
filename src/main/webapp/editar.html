@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Editar Perfil</title>
+  <link rel="stylesheet" href="editar.css">
+</head>
+<body>
+<!--navbar compartilhada-->
+<div id="navbar-container"></div>
+<div class="container">
+  <h2>Editar Perfil</h2>
+  <form id="formEditar">
+    <label>Telefone: <input type="text" id="telefone" name="telefone"></label>
+    <label>Cidade: <input type="text" id="cidade" name="cidade"></label>
+    <label>Estado: <input type="text" id="estado" name="estado"></label>
+    <button type="submit">Salvar Alterações</button>
+  </form>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("perfil")
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("telefone").value = data.telefone || "";
+      const cidadeEstado = (data.cidade || "").split(" - ");
+      document.getElementById("cidade").value = cidadeEstado[0] || "";
+      document.getElementById("estado").value = cidadeEstado[1] || "";
+    });
+
+  document.getElementById("formEditar").addEventListener("submit", e => {
+    e.preventDefault();
+    const dados = {
+      telefone: document.getElementById("telefone").value,
+      cidade: document.getElementById("cidade").value,
+      estado: document.getElementById("estado").value,
+    };
+    fetch("editarPerfil", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(dados)
+    }).then(() => {
+      alert("Perfil atualizado!");
+      window.location.href = "perfil.html";
+    });
+  });
+});
+</script>
+<!--navbar compartilhada-->
+    <script>
+        fetch('nav.html')
+        .then(response => response.text())
+        .then(data => {
+        document.getElementById('navbar-container').innerHTML = data;
+
+        // roda o código do nav.js aqui, porque agora a navbar está no DOM
+        $(".sub-btn").click(function () {
+            $(this).next(".sub-menu").slideToggle();
+        });
+        $(".more-btn").click(function () {
+            $(this).next(".more-menu").slideToggle();
+        });
+
+        var menu = document.querySelector(".menu");
+        var menuBtn = document.querySelector(".menu-btn");
+        var closeBtn = document.querySelector(".close-btn");
+
+        if(menuBtn && closeBtn && menu) {
+            menuBtn.addEventListener("click", () => {
+            menu.classList.add("active");
+            });
+            closeBtn.addEventListener("click", () => {
+            menu.classList.remove("active");
+            });
+        }
+
+        window.addEventListener("scroll", function () {
+            var header = document.querySelector("header");
+            if(header){
+            header.classList.toggle("sticky", window.scrollY > 0);
+            }
+        });
+
+        });
+    </script>
+<!---->
+
+</body>
+</html>
