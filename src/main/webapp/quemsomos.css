@@ -108,7 +108,7 @@ body {
   transform: translateX(20px);
 }
 
-/* Responsividade para mobile até 768px */
+/* Responsividade */
 @media (max-width: 768px) {
   .container {
     gap: 20px;
@@ -137,7 +137,6 @@ body {
   }
 }
 
-/* Opcional: evitar hover em dispositivos sem hover */
 @media (hover: none) {
   .text-box, .image-box {
     transition: none !important;

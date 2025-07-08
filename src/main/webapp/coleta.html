@@ -6,15 +6,21 @@
   <title>
     Pontos de Coleta
   </title>
+
+  <!-- Estilo da página -->
   <link rel="stylesheet" href="coleta.css">
+
+  <!-- Ícones do Bootstrap -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 <body>
-<!--navbar compartilhada-->
-<div id="navbar-container"></div>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<!---->
-  <!-- Topo com imagem e texto centralizado -->
+
+  <!-- Navbar -->
+  <div id="navbar-container"></div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <!-- Topo com imagem de fundo e texto -->
   <div class="topo">
     <img src="img/ChatGPT Image 25 de mai. de 2025, 21_14_17.png" alt="Imagem de topo">
     <div class="texto-topo">
@@ -22,118 +28,115 @@
     </div>
   </div>
 
-  <!-- Texto e botões -->
+  <!-- Seção de descrição -->
   <section class="conteudo">
     <p class="descricao">
       Leve sua doação a um ponto de arrecadação.
     </p>
   </section>
 
-<section class="caixas">
-  <!-- Itens recolhidos -->
-  <div class="caixa">
-    <h3>
-      <i class="bi bi-list-check"></i>
+  <!-- Seção com caixas de informações -->
+  <section class="caixas">
+    
+    <div class="caixa">
+      <h3><i class="bi bi-list-check"></i>
         Itens recolhidos
-    </h3>
-    <p>
-      Roupas, brinquedos, calçados, alimentos e outros objetos.
-    </p>
-  </div>
+      </h3>
+      <p>
+        Roupas, brinquedos, calçados, alimentos e outros objetos.
+      </p>
+    </div>
 
-  <!-- Quero promover a caixa -->
-  <div class="caixa">
-    <h3>
-      <i class="bi bi-person"></i>
+    <div class="caixa">
+      <h3><i class="bi bi-person"></i>
         Quero promover a caixa!
-    </h3>
-    <p>
-      Para receber uma caixa de arrecadação em seu comércio, empresa ou condomínio, entre em contato 
-      <a href="campanha.html" class="link">nessa página.</a>
-    </p>
-  </div>
+      </h3>
+      <p>
+        Para receber uma caixa de arrecadação em seu comércio, empresa ou condomínio,
+        entre em contato
+        <a href="campanha.html" class="link">
+          nessa página.
+        </a>
+      </p>
+    </div>
 
-  <!-- Locais e horários -->
-  <div class="caixa">
-    <h3>
-      <i class="bi bi-clock"></i>
-      Locais e horários de funcionamento.
-    </h3>
-    <p>
-      Há vários locais para você levar sua doação.
-    </p>
+    <div class="caixa">
+      <h3><i class="bi bi-clock"></i>
+        Locais e horários de funcionamento
+      </h3>
+      <p>
+        Há vários locais para você levar sua doação.
+      </p>
 
-    <section class="campanhas">
-      <ul>
-        <br>
-        <li>
-          <a href="https://www.google.com/maps/place/Supermercado+Jean/..." target="_blank" rel="noopener noreferrer">
-            <p style="color: #FFA500;">Supermercado Jean</p>
-            Tv. José Sá de Azevedo, 183 <br> Vila Recreio, Mombaça - CE, 63610-000
-          </a>
-        </li> 
-        <br>
-        <li>
-          <a href="http://google.com/maps/place/UECE+-+Campus..." target="_blank" rel="noopener noreferrer">
-            <p style="color: #FFA500;">UECE - Campos Avançado de Mombaça</p>
-            Fazenda amontada, recreio <br> Recreio dos Bandeirantes, Mombaça - CE, 63610-000
-          </a>
-        </li>
-        <br>
-        <li>
-          <a href="https://www.google.com/maps/place/Instituto+Federal..." target="_blank" rel="noopener noreferrer">
-            <p style="color: #FFA500;">IFCE - Campus Mombaça</p>
-            Sítio São Francisco, s/n/ CE 363 Recreação <br> Mombaça - CE, 63610-000
-          </a>
-        </li>
-      </ul>
-    </section>
-  </div>
-</section>
+      <!-- Lista de locais com link para o mapa -->
+      <section class="campanhas">
+        <ul>
+          <li>
+            <a href="https://www.google.com/maps/place/Supermercado+Jean/..." target="_blank" rel="noopener noreferrer">
+              <p style="color: #FFA500;">
+                Supermercado Jean
+              </p>
+              Tv. José Sá de Azevedo, 183<br>Vila Recreio, Mombaça - CE, 63610-000
+            </a>
+          </li>
+          <br>
+          <li>
+            <a href="http://google.com/maps/place/UECE+-+Campus..." target="_blank" rel="noopener noreferrer">
+              <p style="color: #FFA500;">
+                UECE - Campus Avançado de Mombaça
+              </p>
+              Fazenda Amontada, Recreio<br>Mombaça - CE, 63610-000
+            </a>
+          </li>
+          <br>
+          <li>
+            <a href="https://www.google.com/maps/place/Instituto+Federal..." target="_blank" rel="noopener noreferrer">
+              <p style="color: #FFA500;">
+                IFCE - Campus Mombaça
+              </p>
+              Sítio São Francisco, s/n - CE 363<br>Mombaça - CE, 63610-000
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </section>
 
-<!--SCRIPT---------------------------------------------------->
-
-  <script src="coleta.js"></script>
-
-<!------------------------------------------------------------>
-
-<!--navbar compartilhada-->
-    <script>
-        fetch('nav.html')
-        .then(response => response.text())
-        .then(data => {
+  <!-- Carregamento da navbar compartilhada e ativação do comportamento do menu -->
+  <script>
+    fetch('nav.html')
+      .then(response => response.text())
+      .then(data => {
         document.getElementById('navbar-container').innerHTML = data;
 
-        // roda o código do nav.js aqui, porque agora a navbar está no DOM
+        // Após carregar a navbar ativa botões de submenus
         $(".sub-btn").click(function () {
-            $(this).next(".sub-menu").slideToggle();
-        });
-        $(".more-btn").click(function () {
-            $(this).next(".more-menu").slideToggle();
+          $(this).next(".sub-menu").slideToggle();
         });
 
+        // botão abrir/fechar menu
         var menu = document.querySelector(".menu");
         var menuBtn = document.querySelector(".menu-btn");
         var closeBtn = document.querySelector(".close-btn");
 
-        if(menuBtn && closeBtn && menu) {
-            menuBtn.addEventListener("click", () => {
+        if (menuBtn && closeBtn && menu) {
+          menuBtn.addEventListener("click", () => {
             menu.classList.add("active");
-            });
-            closeBtn.addEventListener("click", () => {
+          });
+
+          closeBtn.addEventListener("click", () => {
             menu.classList.remove("active");
-            });
+          });
         }
 
+        // Efeito de sticky na rolagem
         window.addEventListener("scroll", function () {
-            var header = document.querySelector("header");
-            if(header){
+          var header = document.querySelector("header");
+          if (header) {
             header.classList.toggle("sticky", window.scrollY > 0);
-            }
+          }
         });
-
-        });
-    </script>
-<!---->
+      });
+  </script>
 </body>
 </html>

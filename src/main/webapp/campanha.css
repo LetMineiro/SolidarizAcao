@@ -1,3 +1,4 @@
+/* RESET GERAL */
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +11,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* Topo com imagem e texto centralizado */
+/* TOPO COM IMAGEM */
 .topo {
   position: relative;
   width: 100%;
@@ -40,7 +41,7 @@ body {
   gap: 0.5rem;
 }
 
-/* Seção do meio com texto e botões */
+/* SEÇÃO COM BOTÃO */
 .conteudo {
   text-align: center;
   padding: 2rem 1rem;
@@ -59,22 +60,19 @@ body {
   border-radius: 8px;
   text-decoration: none;
   color: white;
-  transition: 0.3s;
+  background-color: #4CAF50;
+  transition: background-color 0.3s;
   cursor: pointer;
   display: inline-block;
   min-width: 120px;
   text-align: center;
 }
 
-.btn1 {
-  background-color: #4CAF50;
-}
-
-.btn1:hover {
+.btn:hover {
   background-color: #45a049;
 }
 
-/* Caixas com ícones */
+/* CAIXAS */
 .caixas {
   display: flex;
   flex-wrap: wrap;
@@ -91,7 +89,6 @@ body {
   width: 100%;
   max-width: 500px;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
 }
 
 .caixa h3 {
@@ -104,9 +101,10 @@ body {
   flex-wrap: wrap;
 }
 
-.caixa i {
+.caixa h3 i {
   font-size: 1.5rem;
   color: #4CAF50;
+  margin-right: 8px;
 }
 
 .caixa ul {
@@ -119,76 +117,59 @@ body {
   list-style-type: disc;
 }
 
-.caixa h3 i {
-  margin-right: 8px;
-  color: #4CAF50;
-}
-
-/* ----------------------------------------- */
-/* Responsividade com Media Queries */
-/* ----------------------------------------- */
-
-/* Tablets e telas médias */
+/* RESPONSIVIDADE */
 @media (max-width: 1024px) {
   .topo {
     height: 400px;
   }
-  
+
   .texto-topo {
     font-size: 2rem;
   }
-  
+
   .conteudo {
     padding: 1.8rem 1rem;
   }
 }
 
-/* Tablets pequenos e celulares em modo paisagem */
 @media (max-width: 768px) {
   .topo {
     height: 300px;
   }
-  
+
   .texto-topo {
     font-size: 1.8rem;
-    /* Caso o conteúdo seja extenso, pode ser útil alinhar os itens verticalmente */
     flex-direction: column;
   }
-  
-  .conteudo {
-    padding: 1.5rem 1rem;
-  }
-  
+
   .botoes .btn {
     padding: 0.65rem 1.2rem;
     font-size: 0.9rem;
-    min-width: auto;
   }
 }
 
-/* Celulares pequenos */
 @media (max-width: 480px) {
   .topo {
     height: 250px;
   }
-  
+
   .texto-topo {
     font-size: 1.5rem;
   }
-  
+
   .conteudo {
     padding: 1rem;
   }
-  
+
   .botoes .btn {
     padding: 0.5rem 1rem;
     font-size: 0.85rem;
   }
-  
+
   .caixa {
     padding: 1rem;
   }
-  
+
   .caixa h3 {
     font-size: 1.1rem;
   }

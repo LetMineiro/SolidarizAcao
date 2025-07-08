@@ -1,16 +1,18 @@
+/* Fundo e estrutura base */
 body {
   font-family: Arial, sans-serif;
   background-image: url('img/pexels-rdne-6646917.jpg');
-  background-size: cover;           
+  background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center; 
+  background-position: center;
   height: 100vh;
   width: 100%;
   color: #333;
   padding: 2rem;
-  margin-top: 100px;
+  margin-top: 100px; /* Espaço para a navbar */
 }
 
+/* Caixa do formulário */
 .container {
   max-width: 300px;
   margin: 0 auto;
@@ -19,30 +21,15 @@ body {
   border: 3px solid #FF9800;
   padding: 2rem;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: padding 0.3s ease;
 }
 
+/* Título centralizado */
 h2 {
   text-align: center;
+  margin-bottom: 1rem;
 }
 
-/* Botões */
-button {
-  padding: 8px 8px;
-  background-color: #FF9800;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.8rem;
-  transition: background 0.3s;
-  max-width: 200px;
-}
-
-button:hover {
-  background-color: #eb8d00;
-}
-
+/* Formulário */
 form {
   display: flex;
   flex-direction: column;
@@ -50,12 +37,37 @@ form {
   margin-top: 20px;
 }
 
-input {
-  border-radius: 4px;
-  border: 1px solid #4CAF50;
+/* Estilização dos campos */
+label {
+  width: 100%;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
 }
 
-label, input {
-  display: block;
-  margin-bottom: 10px;
+input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #4CAF50;
+  margin-top: 5px;
+  font-size: 1rem;
+}
+
+/* Botão */
+button {
+  padding: 10px;
+  background-color: #FF9800;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 10px;
+  transition: background 0.3s;
+  width: 100%;
+  max-width: 200px;
+}
+
+button:hover {
+  background-color: #eb8d00;
 }

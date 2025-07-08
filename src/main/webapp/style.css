@@ -37,35 +37,7 @@ body, html {
 /* Navbar fixa no topo */
 header {
     position: fixed;
-    /*top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    z-index: 10;
-    background-color: transparent;
-    transition: background-image 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
-    transform: translateY(-4px);
-    text-shadow: 4px 4px 4px rgba(0,0,0,0.9);
-    background: rgba(0, 0, 0, 0.5);*/
 }
-
-/*
-nav ul {
-    display: flex;
-    gap: 25px;
-    list-style: none;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}*/
 
 .btn-doar {
     background-color: #4CAF50;
@@ -149,7 +121,7 @@ main {
     color: #ccc;
 }
 
-/*SEÇÃO 02 - SCROLL-----------------------------------------------------*/
+/*SEÇÃO SCROLL-----------------------------------------------------*/
 .secao {
     padding: 60px 20px;
     background-color: #ffffff;
@@ -237,64 +209,6 @@ main {
     padding-bottom: 10px;
     border-bottom: 3px solid transparent;
 }
-
-/*NAVBAR--------------------------------------------------------*/
-/*
-.menu {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-}
-
-
-.menu li {
-    position: relative;
-}
-
-.menu li a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    padding: 10px;
-    white-space: nowrap;
-    display: block;
-}
-
-
-.submenu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #FF9800;
-    border-radius: 8px;
-    padding: 10px 0;
-    min-width: 200px;
-    z-index: 10;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-
-.dropdown:hover .submenu {
-    display: block;
-}
-
-
-.submenu a {
-    display: block;
-    padding: 8px 16px;
-    color: white;
-    font-weight: normal;
-    font-size: 14px;
-    transition: background-color 0.3s;
-}
-
-.submenu a:hover {
-    background-color: #c27a0e;
-}*/
 
 .mensagem-erro {
     color: #a94442;

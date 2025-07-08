@@ -1,6 +1,8 @@
 body {
   background-image: url('img/1.jpg');
   backdrop-filter: blur(2px); 
+  background-size: cover;
+  background-position: center;
   font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
@@ -40,7 +42,7 @@ body {
 }
 
 .login-form input {
-  width: 93%;
+  width: 100%;
   padding: 0.75rem;
   margin-bottom: 1.2rem;
   border: 1px solid #ccc;
@@ -81,7 +83,7 @@ body {
 @media (max-width: 480px) {
   body {
     padding: 10px;
-    height: auto; /* para permitir scroll se necessário */
+    height: auto; /* para permitir scroll */
     align-items: flex-start;
   }
 

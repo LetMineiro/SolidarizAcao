@@ -10,8 +10,9 @@
 <body>
 <!--navbar compartilhada-->
 <div id="navbar-container"></div>
+
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<!---->
+
   <div class="login-container">
     <form class="login-form" action="loginUsuario" method="POST">
       <h2><i class="bi bi-person-circle"></i> Entrar</h2>
@@ -31,45 +32,41 @@
     </form>
   </div>
 
-  <script src="login.js"></script>
-
-<!--navbar compartilhada-->
+    <!-- Carregamento da navbar compartilhada e ativação do comportamento do menu -->
     <script>
         fetch('nav.html')
         .then(response => response.text())
         .then(data => {
-        document.getElementById('navbar-container').innerHTML = data;
+            document.getElementById('navbar-container').innerHTML = data;
 
-        // roda o código do nav.js aqui, porque agora a navbar está no DOM
-        $(".sub-btn").click(function () {
+            // Após carregar a navbar ativa botões de submenus
+            $(".sub-btn").click(function () {
             $(this).next(".sub-menu").slideToggle();
-        });
-        $(".more-btn").click(function () {
-            $(this).next(".more-menu").slideToggle();
-        });
+            });
 
-        var menu = document.querySelector(".menu");
-        var menuBtn = document.querySelector(".menu-btn");
-        var closeBtn = document.querySelector(".close-btn");
+            // botão abrir/fechar menu
+            var menu = document.querySelector(".menu");
+            var menuBtn = document.querySelector(".menu-btn");
+            var closeBtn = document.querySelector(".close-btn");
 
-        if(menuBtn && closeBtn && menu) {
+            if (menuBtn && closeBtn && menu) {
             menuBtn.addEventListener("click", () => {
-            menu.classList.add("active");
+                menu.classList.add("active");
             });
+
             closeBtn.addEventListener("click", () => {
-            menu.classList.remove("active");
+                menu.classList.remove("active");
             });
-        }
-
-        window.addEventListener("scroll", function () {
-            var header = document.querySelector("header");
-            if(header){
-            header.classList.toggle("sticky", window.scrollY > 0);
             }
-        });
 
+            // Efeito de sticky na rolagem
+            window.addEventListener("scroll", function () {
+            var header = document.querySelector("header");
+            if (header) {
+                header.classList.toggle("sticky", window.scrollY > 0);
+            }
+            });
         });
     </script>
-<!---->
 </body>
 </html>

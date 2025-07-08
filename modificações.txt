@@ -1,0 +1,27 @@
+**Editar.css**
+Adicionei css a página de editar
+
+**JS repetidos**
+JS repetidos foram retirados, o codigo ficou no html de suas respectivas páginas
+
+**formCaixa**
+Adicionado a campanha dinâmica.
+Quando o usúario digitar o CEP, será feito o GET.
+Deve retornar um JSON com o nome da campanha.
+Se houver campanhas, exibe <select>
+Se não houver, exibe <input> manual
+
+**coleta.html**
+Se der tempo, deixar o campo de locais e horários dinamicos.
+Pegando nome e data da campanha do formCaixa.
+
+**obrigada**
+Adicionada a página de obrigada após a doação.
+Fazer rota no botão enviar Doação de doações.html.
+
+**perfil.html**
+CSS adicionado ao botão sair.
+
+
+
+

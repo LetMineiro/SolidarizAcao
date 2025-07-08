@@ -1,3 +1,4 @@
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +11,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* Topo com imagem e texto centralizado */
+/* ---------- TOPO ---------- */
 .topo {
   position: relative;
   width: 100%;
@@ -36,7 +37,7 @@ body {
   text-align: center;
 }
 
-/* Seção do meio com texto e botões */
+/* ---------- CONTEÚDO DESCRIÇÃO ---------- */
 .conteudo {
   text-align: center;
   padding: 2rem;
@@ -46,7 +47,7 @@ body {
   font-size: 1.2rem;
 }
 
-/* Caixas com ícones */
+/* ---------- CAIXAS ---------- */
 .caixas {
   display: flex;
   flex-wrap: wrap;
@@ -80,6 +81,7 @@ body {
   color: #4CAF50;
 }
 
+/* Link "nesta página" */
 .link {
   text-decoration: none;
   color: #4CAF50;
@@ -89,6 +91,7 @@ body {
   color: #3e9141;
 }
 
+/* ---------- LISTA DE LOCAIS ---------- */
 .campanhas ul {
   list-style: none;
 }
@@ -96,8 +99,6 @@ body {
 .campanhas ul li a {
   text-decoration: none;
   color: #4CAF50;
-  cursor: pointer;
-  position: relative;
   display: inline-block;
   padding: 5px 0;
   transition: color 0.3s;
@@ -108,7 +109,7 @@ body {
   color: #357937;
 }
 
-/* Responsividade */
+/* ---------- RESPONSIVIDADE ---------- */
 @media (max-width: 768px) {
   .topo {
     height: 300px;
@@ -129,7 +130,7 @@ body {
 
   .caixas {
     flex-direction: column;
-    padding: 1.5em;
+    padding: 1.5rem;
   }
 
   .caixa {
