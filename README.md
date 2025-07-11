@@ -27,6 +27,7 @@ O objetivo é facilitar a logística de arrecadações, permitindo:
 ### Back-end
 - Java (Servlets)
 - JDBC
+- JSON (JavaScript Object Notation)
 
 ### Banco de Dados
 - MySQL
@@ -70,15 +71,18 @@ O objetivo é facilitar a logística de arrecadações, permitindo:
 
 ### 📌 Tela Inicial
 Acesso rápido às principais páginas do sistema.
+![Tela Inicial](imgsREADME/inicial.png)
 
 ### 🔐 Tela de Login
 Formulário simples com verificação de sessão ativa.
+![Tela de Login](imgsREADME/login.png)
 
 ### 👤 Perfil do Usuário
 Exibe:
 - Nome, email, cidade e telefone
 - Campanhas organizadas (com datas)
 - Doações realizadas (agrupadas por item)
+![Tela de Perfil](imgsREADME/perfil.png)
 
 ### 📦 Solicitação de Caixa
 Formulário dividido por:
@@ -86,6 +90,7 @@ Formulário dividido por:
 - Itens coletados
 - Campanha (nova ou existente)
 - Datas de início e fim
+![Tela de Form Caixa](imgsREADME/formcaixa.png)
 
 ### 🗺️ Pontos de Coleta
 Lista pública com:
@@ -93,6 +98,7 @@ Lista pública com:
 - Itens coletados
 - Endereço do ponto
 - Período da campanha
+![Tela de Campanhas Ativas](imgsREADME/pontosdecoleta.png)
 
 ---
 
@@ -100,7 +106,7 @@ Lista pública com:
 
 1. **Clone o repositório**
 
-Via GitHub:
+Via GitBash:
 
 ```bash
 git clone -b main https://github.com/LetMineiro/SolidarizAcao.git
@@ -110,7 +116,7 @@ Ou baixe o ZIP em: [github.com/LetMineiro/SolidarizAcao](https://github.com/LetM
 
 ---
 
-2. **Importe no NetBeans ou Eclipse**
+2. **Importe no NetBeans **
 
 - No NetBeans: `File > Open Project`
 - Configure o Apache Tomcat na aba *Services*
