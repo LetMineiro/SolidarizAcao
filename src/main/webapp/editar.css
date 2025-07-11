@@ -1,0 +1,73 @@
+/* Fundo e estrutura base */
+body {
+  font-family: Arial, sans-serif;
+  background-image: url('img/pexels-rdne-6646917.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+  color: #333;
+  padding: 2rem;
+  margin-top: 100px; /* Espaço para a navbar */
+}
+
+/* Caixa do formulário */
+.container {
+  max-width: 300px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 20px;
+  border: 3px solid #FF9800;
+  padding: 2rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Título centralizado */
+h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Formulário */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Estilização dos campos */
+label {
+  width: 100%;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #4CAF50;
+  margin-top: 5px;
+  font-size: 1rem;
+}
+
+/* Botão */
+button {
+  padding: 10px;
+  background-color: #FF9800;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 10px;
+  transition: background 0.3s;
+  width: 100%;
+  max-width: 200px;
+}
+
+button:hover {
+  background-color: #eb8d00;
+}

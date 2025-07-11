@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Doação realizada</title>
+        <link rel="stylesheet" href="obrigado.css">
+    </head>
+    <body>
+        <!--navbar compartilhada-->
+        <div id="navbar-container"></div>
+        
+        <section class="choice">
+            <div class="box">
+                <h1>AÇÃO REALIZADA COM SUCESSO!</h1>
+                
+                <div class="botoes">
+                    <a href="doar.html" class="btn btn1">Faça uma doação</a>
+                    
+                    <a href="campanha.html" class="btn btn1">Promova uma campanha</a>
+                    
+                    <a href="cadastro.html" class="btn btn1">Cadastre-se</a>
+                    
+                    <a href="index.html" class="btn btn1">Início</a>
+                </div>
+            </div>
+        </section>
+        
+        <!------------------------------------------------------------>
+        
+        <!-- Carregamento da navbar compartilhada e ativação do comportamento do menu -->
+        <script>
+            fetch('nav.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('navbar-container').innerHTML = data;
+                
+                // Interação dos botões da navbar
+                $(".sub-btn").click(function () {
+                    $(this).next(".sub-menu").slideToggle();
+                });
+                
+                var menu = document.querySelector(".menu");
+                var menuBtn = document.querySelector(".menu-btn");
+                var closeBtn = document.querySelector(".close-btn");
+                
+                if (menuBtn && closeBtn && menu) {
+                    menuBtn.addEventListener("click", () => {
+                        menu.classList.add("active");
+                    });
+                    
+                    closeBtn.addEventListener("click", () => {
+                        menu.classList.remove("active");
+                    });
+                }
+                
+                window.addEventListener("scroll", function () {
+                    var header = document.querySelector("header");
+                    if (header) {
+                        header.classList.toggle("sticky", window.scrollY > 0);
+                    }
+                });
+            });
+        </script>
+        <script>
+            //Substitui LOGIN pelo nome do usuário se estiver logado
+            fetch("perfil")
+                    .then(res => res.ok ? res.json() : Promise.reject())
+                    .then(data => {
+                        const loginLink = document.getElementById("login-link");
+                if (loginLink) {
+                    loginLink.textContent = `${data.nome.split(" ")[0].toUpperCase()}`;
+                    loginLink.href = "perfil.html";
+                }
+            })
+                    .catch(() => {
+                        // Se não estiver logado, mantém o link para login.html
+                const loginLink = document.getElementById("login-link");
+                if (loginLink) {
+                    loginLink.textContent = "LOGIN";
+                    loginLink.href = "login.html";
+                }
+            });
+        </script>
+    </body>
+</html>

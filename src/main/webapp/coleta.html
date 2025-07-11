@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>
+            Pontos de Coleta
+        </title>
+        
+        <!-- Estilo da página -->
+        <link rel="stylesheet" href="coleta.css">
+        
+        <!-- Ícones do Bootstrap -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    </head>
+    <body>
+        
+        <!-- Navbar -->
+        <div id="navbar-container"></div>
+        
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        
+        <!-- Topo com imagem de fundo e texto -->
+        <div class="topo">
+            <img src="img/ChatGPT Image 25 de mai. de 2025, 21_14_17.png" alt="Imagem de topo">
+            <div class="texto-topo">
+                Pontos de Coleta
+            </div>
+        </div>
+        
+        <!-- Seção de descrição -->
+        <section class="conteudo">
+            <p class="descricao">
+                Ajude solicitando uma caixa de doação e promovendo uma campanha.
+            </p>
+            <div class="botoes">
+                <a href="campanha.html" class="btn btn1">
+                    Promova uma campanha
+                </a>
+            </div>
+        </section>
+        
+        <!-- Seção com caixas de informações -->
+        <section class="caixas">
+            
+            <div class="caixa">
+                <h3><i class="bi bi-box2-heart"></i>
+                    Campanhas ativas!
+                </h3>
+                <p>
+                    Leve sua doação a um ponto de arrecadação.
+                </p>
+                
+                <!-- Lista de locais com link para o mapa -->
+                <section class="campanhas">
+                    <section class="campanhas">
+                        <ul id="lista-campanhas">
+                            <!-- Conteúdo dinâmico será inserido aqui -->
+                        </ul>
+                    </section>
+                    
+                </section>
+                
+                <!-- Carregamento da navbar compartilhada e ativação do comportamento do menu -->
+                <script>
+                    fetch('nav.html')
+                            .then(response => response.text())
+                            .then(data => {
+                                document.getElementById('navbar-container').innerHTML = data;
+
+                        // Interação dos botões da navbar
+                        $(".sub-btn").click(function () {
+                            $(this).next(".sub-menu").slideToggle();
+                        });
+
+                        var menu = document.querySelector(".menu");
+                        var menuBtn = document.querySelector(".menu-btn");
+                        var closeBtn = document.querySelector(".close-btn");
+
+                        if (menuBtn && closeBtn && menu) {
+                            menuBtn.addEventListener("click", () => {
+                                menu.classList.add("active");
+                            });
+
+                            closeBtn.addEventListener("click", () => {
+                                menu.classList.remove("active");
+                            });
+                        }
+
+                        window.addEventListener("scroll", function () {
+                            var header = document.querySelector("header");
+                            if (header) {
+                                header.classList.toggle("sticky", window.scrollY > 0);
+                            }
+                        });
+                </script>
+                <script>
+                        // Substitui LOGIN pelo nome do usuário se estiver logado
+                        fetch("perfil")
+                                .then(res => res.ok ? res.json() : Promise.reject())
+                                .then(data => {
+                                    const loginLink = document.getElementById("login-link");
+                            if (loginLink) {
+                                loginLink.textContent = `${data.nome.split(" ")[0].toUpperCase()}`;
+                                loginLink.href = "perfil.html";
+                            }
+                        })
+                                .catch(() => {
+                                    // Se não estiver logado, mantém o link para login.html
+                            const loginLink = document.getElementById("login-link");
+                            if (loginLink) {
+                                loginLink.textContent = "LOGIN";
+                                loginLink.href = "login.html";
+                            }
+                        });
+                    });
+                </script>
+                <script>
+                    // Alimenta com os pontos de coleta do BD
+                    fetch('api/pontos-coleta')
+                            .then(res => res.json())
+                            .then(dados => {
+                                const lista = document.getElementById("lista-campanhas");
+
+                        if (dados.length === 0) {
+                            lista.innerHTML = "<li>Nenhum ponto de coleta disponível no momento.</li>";
+                            return;
+                        }
+
+                        dados.forEach(c => {
+                            const li = document.createElement("li");
+                            li.innerHTML = `
+    <p style="color: #FFA500;"><strong>${c.campanha}</strong></p>
+                            ${c.endereco}<br>
+    <em>Itens: ${c.itens}</em><br>
+   <em>Data Inicio: ${c.data_inicio}</em><br>
+  <em>Data Fim: ${c.data_fim}</em>
+    <br><br>
+  `;
+                            lista.appendChild(li);
+                        });
+                    })
+                            .catch(err => {
+                                console.error("Erro ao carregar pontos de coleta:", err);
+                    });
+                </script>
+                </body>
+                </html>

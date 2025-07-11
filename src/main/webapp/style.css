@@ -1,0 +1,223 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: Arial, sans-serif;
+    background-size: cover;
+    color: white;
+    height: 100%;
+}
+
+/* Fundo com transição */
+.fundo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    animation: trocarFundo 20s infinite;
+    transition: background-image 1s ease-in-out;
+}
+
+@keyframes trocarFundo {
+    0%, 49.99% {
+        background-image: url('img/7c20a3e0-708c-44e6-aa45-d5c4471a390f.jpeg');
+    }
+    50%, 100% {
+        background-image: url('img/portao-bombeiros-05.jpg');
+    }
+}
+
+/* Navbar fixa no topo */
+header {
+    position: fixed;
+}
+
+.btn-doar {
+    background-color: #4CAF50;
+    padding: 10px 15px;
+    border-radius: 4px;
+    color: white;
+}
+
+.btn-doar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Conteúdo principal */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    text-align: center;
+    padding-top: 250px; /* aumenta um pouco para garantir espaço */
+    position: relative;
+    z-index: 1; /* garante que o conteúdo fique acima do fundo */
+}
+
+.doacao-box {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 30px 40px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    z-index: 20;
+}
+
+.doacao-box h2 {
+    margin-bottom: 20px;
+}
+
+.doacao-box form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.doacao-box input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 60%;
+}
+
+.botao-agendar {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    border: none;
+    
+}
+
+.botao-agendar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+
+.doacao-box p {
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.doacao-box small {
+    font-size: 0.75rem;
+    color: #ccc;
+}
+
+/*SEÇÃO SCROLL-----------------------------------------------------*/
+.secao {
+    padding: 60px 20px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.bloco {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    aspect-ratio: 3 / 4; /* altura automática baseada na largura */
+}
+
+.bloco:hover {
+    transform: scale(1.05);
+}
+
+.bloco::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+}
+
+.conteudo {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: white;
+    z-index: 1;
+    padding: 0 10px;
+}
+
+.titulo {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.botao {
+    display: inline-block;
+    background-color: #FF9800;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.botao:hover {
+    background-color: #4CAF50;
+}
+
+.cabecalho {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 2px;
+    font-size: 18px;
+    color: #4CAF50;
+}
+
+.cabecalho div {
+    width: 300px;
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 10px;
+    border-bottom: 3px solid transparent;
+}
+
+.mensagem-erro {
+    color: #ff0400;
+    background-color: #ffffff;
+    border: 1px solid #ff0000;
+    padding: 10px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    margin: 20px auto 0;
+    max-width: 200px;
+    text-align: center;
+}

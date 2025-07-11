@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>
+            Perguntas Frequentes
+        </title>
+        
+        <!-- CSS principal da página -->
+        <link rel="stylesheet" href="ajuda.css">
+        
+        <!-- Ícones do Bootstrap -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        
+        <!-- Ícones do FontAwesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    </head>
+    <body>
+        
+        <!-- Navbar -->
+        <div id="navbar-container"></div>
+        
+        <!-- Carrega jQuery -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        
+        <!-- Topo da página com imagem e ícone de ajuda -->
+        <div class="topo">
+            <img src="img/pexels-leeloothefirst-5428830.jpg" alt="Imagem de Ajuda">
+            <div class="texto-topo">
+                <i class="bi bi-question-circle-fill"></i>
+                Ajuda & Perguntas Frequentes
+            </div>
+        </div>
+        
+        <!-- Seção com as perguntas frequentes em caixas -->
+        <section class="caixas">
+            <div class="caixa">
+                <h3><i class="bi bi-gift-fill"></i> O que posso doar?</h3>
+                <p>
+                    Alimentos não perecíveis, roupas, calçados, brinquedos e utensílios em bom estado.
+                </p>
+            </div>
+            
+            <div class="caixa">
+                <h3><i class="bi bi-check-circle-fill"></i>
+                    Os itens precisam estar novos?
+                </h3>
+                <p>
+                    Não, mas devem estar limpos e em boas condições de uso.
+                </p>
+            </div>
+            
+            <div class="caixa">
+                <h3><i class="bi bi-geo-alt-fill"></i>
+                    Onde posso entregar minha doação?
+                </h3>
+                <p>
+                    Em nossos pontos de coleta parceiros ou durante campanhas.
+                </p>
+            </div>
+            
+            <div class="caixa">
+                <h3><i class="bi bi-truck"></i>
+                    Vocês retiram doações em domicílio?
+                </h3>
+                <p>
+                    Sim, em alguns casos. Entre em contato para agendar a retirada.
+                </p>
+            </div>
+            
+            <div class="caixa">
+                <h3><i class="bi bi-people-fill"></i>
+                    Para onde vão as doações?
+                </h3>
+                <p>
+                    São entregues a pessoas em situação de vulnerabilidade e instituições sociais.
+                </p>
+            </div>
+            
+            <div class="caixa">
+                <h3><i class="fas fa-bullhorn"></i>
+                    Como posso divulgar a campanha?
+                </h3>
+                <p>
+                    Compartilhe nosso site, redes sociais ou organize pontos de arrecadação no seu bairro, escola ou trabalho.
+                </p>
+            </div>
+            
+            <div class="caixa">
+                <h3><i class="fas fa-users"></i>
+                    Quem pode participar das campanhas?
+                </h3>
+                <p>
+                    Qualquer pessoa, empresa ou instituição pode se envolver promovendo ou apoiando as arrecadações.
+                </p>
+            </div>
+            
+            <div class="caixa">
+                <h3><i class="bi bi-info-circle-fill"></i>
+                    Quem está por trás do projeto?
+                </h3>
+                <p>
+                    Somos uma equipe de voluntários comprometidos com a solidariedade e o impacto social positivo.
+                </p>
+            </div>
+        </section>
+        
+        <!-- Carregamento da navbar compartilhada e ativação do comportamento do menu -->
+        <script>
+            fetch('nav.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('navbar-container').innerHTML = data;
+
+                // Interação dos botões da navbar
+                $(".sub-btn").click(function () {
+                    $(this).next(".sub-menu").slideToggle();
+                });
+
+                var menu = document.querySelector(".menu");
+                var menuBtn = document.querySelector(".menu-btn");
+                var closeBtn = document.querySelector(".close-btn");
+
+                if (menuBtn && closeBtn && menu) {
+                    menuBtn.addEventListener("click", () => {
+                        menu.classList.add("active");
+                    });
+
+                    closeBtn.addEventListener("click", () => {
+                        menu.classList.remove("active");
+                    });
+                }
+
+                window.addEventListener("scroll", function () {
+                    var header = document.querySelector("header");
+                    if (header) {
+                        header.classList.toggle("sticky", window.scrollY > 0);
+                    }
+                });
+        </script>
+        <script>
+                // Substitui LOGIN pelo nome do usuário se estiver logado
+                fetch("perfil")
+                        .then(res => res.ok ? res.json() : Promise.reject())
+                        .then(data => {
+                            const loginLink = document.getElementById("login-link");
+                    if (loginLink) {
+                        loginLink.textContent = `${data.nome.split(" ")[0].toUpperCase()}`;
+                        loginLink.href = "perfil.html";
+                    }
+                })
+                        .catch(() => {
+                            // Se não estiver logado, mantém o link para login.html
+                    const loginLink = document.getElementById("login-link");
+                    if (loginLink) {
+                        loginLink.textContent = "LOGIN";
+                        loginLink.href = "login.html";
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

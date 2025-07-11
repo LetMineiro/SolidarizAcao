@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Como posso doar?</title>
+            
+        <!-- Estilo principal da página -->
+        <link rel="stylesheet" href="doar.css">
+            
+        <!-- Ícones do Bootstrap -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    </head>
+        <body>
+        
+        <!-- Navbar -->
+        <div id="navbar-container"></div>
+            
+        <!-- Carregamento do jQuery -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+            
+        <!-- Seção do topo com imagem de fundo e texto centralizado -->
+        <div class="topo">
+            <img src="img/pexels-julia-m-cameron-6994806 (1).jpg" alt="Imagem de topo">
+            <div class="texto-topo">
+                Como posso doar?
+            </div>
+        </div>
+            
+        <!-- Texto e botões -->
+        <section class="conteudo">
+            <p class="descricao">
+                Entre em contato via telefone ou internet ou leve sua doação para um ponto de coleta.
+            </p>
+                
+            <div class="botoes">
+                <a href="doações.html" class="btn btn1">
+                    Agende sua retirada
+                </a>
+                <a href="coleta.html" class="btn btn2">
+                    Pontos de coleta
+                </a>
+            </div>
+        </section>
+            
+        <!-- Caixas informativas com ícones -->
+        <section class="caixas">
+            <div class="caixa">
+                <h3><i class="bi bi-truck"></i>
+                    O que posso doar?
+                </h3>
+                <p>
+                    Roupas, brinquedos, livros, alimentos e outros objetos em bom estado.
+                </p>
+                <br>
+                <p>
+                    A coleta é feita por uma equipe uniformizada na data agendada. Entramos em contato para informar sobre a proximidade e imprevistos.
+                </p>
+            </div>
+                
+            <div class="caixa">
+                <h3><i class="bi bi-cart4"></i>
+                    O que é feito com minha doação?
+                </h3>
+                <p>
+                    Todas as doações são enviadas para ONG's e locais beneficentes.
+                </p>
+            </div>
+        </section>
+            
+        <!-- Script da página -->
+        <script src="doar.js"></script>
+            
+        <!-- Carregamento da navbar compartilhada e ativação do comportamento do menu -->
+        <script>
+            fetch('nav.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('navbar-container').innerHTML = data;
+                
+                // Interação dos botões da navbar
+                $(".sub-btn").click(function () {
+                    $(this).next(".sub-menu").slideToggle();
+                });
+                
+                var menu = document.querySelector(".menu");
+                var menuBtn = document.querySelector(".menu-btn");
+                var closeBtn = document.querySelector(".close-btn");
+                
+                if (menuBtn && closeBtn && menu) {
+                    menuBtn.addEventListener("click", () => {
+                        menu.classList.add("active");
+                    });
+                    
+                    closeBtn.addEventListener("click", () => {
+                        menu.classList.remove("active");
+                    });
+                }
+                
+                window.addEventListener("scroll", function () {
+                    var header = document.querySelector("header");
+                    if (header) {
+                        header.classList.toggle("sticky", window.scrollY > 0);
+                    }
+                });
+        </script>
+        <script>
+                // Substitui LOGIN pelo nome do usuário se estiver logado
+                fetch("perfil")
+                        .then(res => res.ok ? res.json() : Promise.reject())
+                        .then(data => {
+                            const loginLink = document.getElementById("login-link");
+                    if (loginLink) {
+                        loginLink.textContent = `${data.nome.split(" ")[0].toUpperCase()}`;
+                        loginLink.href = "perfil.html";
+                    }
+                })
+                        .catch(() => {
+                            // Se não estiver logado, mantém o link para login.html
+                    const loginLink = document.getElementById("login-link");
+                    if (loginLink) {
+                        loginLink.textContent = "LOGIN";
+                        loginLink.href = "login.html";
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
