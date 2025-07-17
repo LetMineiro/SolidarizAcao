@@ -178,6 +178,10 @@ LOCK TABLES `usuarios` WRITE;
 INSERT INTO `usuarios` VALUES (1,'Ana Paula Silva','ana.silva92@gmail.com','123456','(11) 98345-6721','São Paulo','SP'),(2,'João Pedro Lima','joao.lima88@yahoo.com.br','123456','(21) 97412-3345','Rio de Janeiro','RJ'),(3,'Mariana Oliveira Costa','mariana.costa@hotmail.com','123456','(31) 98765-1234','Belo Horizonte','MG'),(4,'Carlos Henrique Souza','carlos.hsouza@gmail.com','123456','(85) 99642-7789','Fortaleza','CE'),(5,'Fernanda Rocha Mendes','fernanda.mendes@outlook.com','123456','(41) 98831-2456','Curitiba','PR');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'solidarizacao'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -188,4 +192,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-07-10 23:47:03
+-- Dump completed on 2025-07-16 21:08:48
