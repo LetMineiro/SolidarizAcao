@@ -145,9 +145,9 @@
                     $(this).next(".sub-menu").slideToggle();
                 });
 
-                var menu = document.querySelector(".menu");
-                var menuBtn = document.querySelector(".menu-btn");
-                var closeBtn = document.querySelector(".close-btn");
+                const menu = document.querySelector(".menu");
+                const menuBtn = document.querySelector(".menu-btn");
+                const closeBtn = document.querySelector(".close-btn");
 
                 if (menuBtn && closeBtn && menu) {
                     menuBtn.addEventListener("click", () => {
@@ -159,14 +159,13 @@
                     });
                 }
 
-                window.addEventListener("scroll", function () {
-                    var header = document.querySelector("header");
+                window.addEventListener("scroll", () => {
+                    const header = document.querySelector("header");
                     if (header) {
                         header.classList.toggle("sticky", window.scrollY > 0);
                     }
                 });
-        </script>
-        <script>
+
                 // Substitui LOGIN pelo nome do usuário se estiver logado
                 fetch("perfil")
                         .then(res => res.ok ? res.json() : Promise.reject())
@@ -178,14 +177,15 @@
                     }
                 })
                         .catch(() => {
-                            // Se não estiver logado, mantém o link para login.html
-                    const loginLink = document.getElementById("login-link");
+                            const loginLink = document.getElementById("login-link");
                     if (loginLink) {
                         loginLink.textContent = "LOGIN";
                         loginLink.href = "login.html";
                     }
                 });
-            });
+
+            })
+                    .catch(err => console.error("Erro ao carregar navbar:", err));
         </script>
     </body>
 </html>

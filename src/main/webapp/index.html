@@ -76,37 +76,58 @@
             
         <!-- Carregamento da navbar compartilhada e ativação do comportamento do menu -->
         <script>
-            fetch('nav.html')
-                    .then(response => response.text())
-                    .then(data => {
-                        document.getElementById('navbar-container').innerHTML = data;
-                
-                // Interação dos botões da navbar
-                $(".sub-btn").click(function () {
-                    $(this).next(".sub-menu").slideToggle();
-                });
-                
-                var menu = document.querySelector(".menu");
-                var menuBtn = document.querySelector(".menu-btn");
-                var closeBtn = document.querySelector(".close-btn");
-                
-                if (menuBtn && closeBtn && menu) {
-                    menuBtn.addEventListener("click", () => {
-                        menu.classList.add("active");
-                    });
-                    
-                    closeBtn.addEventListener("click", () => {
-                        menu.classList.remove("active");
-                    });
-                }
-                
-                window.addEventListener("scroll", function () {
-                    var header = document.querySelector("header");
-                    if (header) {
-                        header.classList.toggle("sticky", window.scrollY > 0);
-                    }
-                });
-        </script>
+  fetch('nav.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('navbar-container').innerHTML = data;
+
+      // Interação dos botões da navbar
+      $(".sub-btn").click(function () {
+        $(this).next(".sub-menu").slideToggle();
+      });
+
+      const menu = document.querySelector(".menu");
+      const menuBtn = document.querySelector(".menu-btn");
+      const closeBtn = document.querySelector(".close-btn");
+
+      if (menuBtn && closeBtn && menu) {
+        menuBtn.addEventListener("click", () => {
+          menu.classList.add("active");
+        });
+
+        closeBtn.addEventListener("click", () => {
+          menu.classList.remove("active");
+        });
+      }
+
+      window.addEventListener("scroll", () => {
+        const header = document.querySelector("header");
+        if (header) {
+          header.classList.toggle("sticky", window.scrollY > 0);
+        }
+      });
+
+      // Substitui LOGIN pelo nome do usuário se estiver logado
+      fetch("perfil")
+        .then(res => res.ok ? res.json() : Promise.reject())
+        .then(data => {
+          const loginLink = document.getElementById("login-link");
+          if (loginLink) {
+            loginLink.textContent = `${data.nome.split(" ")[0].toUpperCase()}`;
+            loginLink.href = "perfil.html";
+          }
+        })
+        .catch(() => {
+          const loginLink = document.getElementById("login-link");
+          if (loginLink) {
+            loginLink.textContent = "LOGIN";
+            loginLink.href = "login.html";
+          }
+        });
+
+    })
+    .catch(err => console.error("Erro ao carregar navbar:", err));
+</script>
         <script>
                 // Substitui LOGIN pelo nome do usuário se estiver logado
                 fetch("perfil")

@@ -13,51 +13,51 @@
         
         <!-- Navbar -->
         <div id="navbar-container"></div>
-        
+            
         <!-- FORMULÁRIO ÚNICO -->
         <form id="form-doacao" action="cadastrarDoacao" method="POST">
             <h2>
                 Formulário de Doação
             </h2>
             <ul id="caixa-erros" style="color: red;"></ul>
-            
+                
             <!-- Etapa 1: Doações -->
             <div class="step active" id="step1">
                 <div class="caixa">
                     <p><strong>
                             O que deseja doar? (Quantidade por caixa ou sacola)
                     </strong></p>
-                            
+                        
                     <div class="item-doacao">
                         <label><input type="checkbox" name="doacoes" value="Roupas"> Roupas
                         </label>
                         <input type="number" name="quant_Roupas" min="1" placeholder="Qtd" class="quantidade">
                     </div>
-                    
+                        
                     <div class="item-doacao">
                         <label><input type="checkbox" name="doacoes" value="Calçados"> Calçados
                         </label>
                         <input type="number" name="quant_Calçados" min="1" placeholder="Qtd" class="quantidade">
                     </div>
-                    
+                        
                     <div class="item-doacao">
                         <label><input type="checkbox" name="doacoes" value="Livros"> Livros
                         </label>
                         <input type="number" name="quant_Livros" min="1" placeholder="Qtd" class="quantidade">
                     </div>
-                    
+                        
                     <div class="item-doacao">
                         <label><input type="checkbox" name="doacoes" value="Brinquedos"> Brinquedos
                         </label>
                         <input type="number" name="quant_Brinquedos" min="1" placeholder="Qtd" class="quantidade">
                     </div>
-                    
+                        
                     <div class="item-doacao">
                         <label><input type="checkbox" name="doacoes" value="Alimentos"> Alimentos
                         </label>
                         <input type="number" name="quant_Alimentos" min="1" placeholder="Qtd" class="quantidade">
                     </div>
-                    
+                        
                     <br>
                     <label>
                         <p style="font-size: 14px;">
@@ -66,7 +66,7 @@
                         <input type="text" id="outroItem" name="outroItem" placeholder="Informe outro tipo de produto">
                         <input type="number" name="quant_outro" min="1" placeholder="Qtd" class="quantidade">
                     </label>
-
+                        
                     <div class="item-doacao">
                         <label for="doarCampanha">
                             Quer direcionar sua doação para uma campanha específica?
@@ -76,7 +76,7 @@
                             <option value="sim">Sim</option>
                         </select>
                     </div>
-                    
+                        
                     <div class="item-doacao" id="selecaoCampanha" style="display: none; margin-top: 10px;">
                         <label for="campanhaSelecionada">
                             Selecione a campanha:
@@ -85,15 +85,15 @@
                             <option value="">Carregando campanhas...</option>
                         </select>
                     </div>
-                    
+                        
                     <button type="button" id="btnProxima">
                         Próxima Etapa
                     </button>
-                    
+                        
                     <div id="mensagem-erro" class="mensagem-erro" style="display: none;"></div>
                 </div>
             </div>
-            
+                
             <!-- Etapa 2: Dados do doador -->
             <div class="step" id="step2">
                 <div class="caixa">
@@ -101,7 +101,7 @@
                             Endereço para retirada
                         </strong></p>
                     <br>
-                    
+                        
                     <div class="form-grid">
                         <label>
                             Nome completo:* 
@@ -136,7 +136,7 @@
                             <textarea id="mensagem" name="mensagem" rows="4" placeholder="Ex: campainha quebrada, horário..."></textarea>
                         </label>
                     </div>
-                    
+                        
                     <button type="submit">
                         Enviar Doação
                     </button>
@@ -146,12 +146,12 @@
                 </div>
             </div>
         </form>
-        
+            
         <!-- JS FINAL -->
         <script src="doacoes.js"></script>
-        
+            
         <!-- Carregamento da navbar compartilhada e ativação do comportamento do menu -->
-         <script>
+        <script>
             fetch('nav.html')
                     .then(response => response.text())
                     .then(data => {
@@ -162,9 +162,9 @@
                     $(this).next(".sub-menu").slideToggle();
                 });
                 
-                var menu = document.querySelector(".menu");
-                var menuBtn = document.querySelector(".menu-btn");
-                var closeBtn = document.querySelector(".close-btn");
+                const menu = document.querySelector(".menu");
+                const menuBtn = document.querySelector(".menu-btn");
+                const closeBtn = document.querySelector(".close-btn");
                 
                 if (menuBtn && closeBtn && menu) {
                     menuBtn.addEventListener("click", () => {
@@ -176,33 +176,33 @@
                     });
                 }
                 
-                window.addEventListener("scroll", function () {
-                    var header = document.querySelector("header");
+                window.addEventListener("scroll", () => {
+                    const header = document.querySelector("header");
                     if (header) {
                         header.classList.toggle("sticky", window.scrollY > 0);
                     }
                 });
-            });
-        </script>
-        <script>
-            // Substitui LOGIN pelo nome do usuário se estiver logado
-            fetch("perfil")
-                    .then(res => res.ok ? res.json() : Promise.reject())
-                    .then(data => {
-                        const loginLink = document.getElementById("login-link");
-                if (loginLink) {
-                    loginLink.textContent = `${data.nome.split(" ")[0].toUpperCase()}`;
-                    loginLink.href = "perfil.html";
-                }
+                
+                // Substitui LOGIN pelo nome do usuário se estiver logado
+                fetch("perfil")
+                        .then(res => res.ok ? res.json() : Promise.reject())
+                        .then(data => {
+                            const loginLink = document.getElementById("login-link");
+                    if (loginLink) {
+                        loginLink.textContent = `${data.nome.split(" ")[0].toUpperCase()}`;
+                        loginLink.href = "perfil.html";
+                    }
+                })
+                        .catch(() => {
+                            const loginLink = document.getElementById("login-link");
+                    if (loginLink) {
+                        loginLink.textContent = "LOGIN";
+                        loginLink.href = "login.html";
+                    }
+                });
+                
             })
-                    .catch(() => {
-                        // Se não estiver logado, mantém o link para login.html
-                const loginLink = document.getElementById("login-link");
-                if (loginLink) {
-                    loginLink.textContent = "LOGIN";
-                    loginLink.href = "login.html";
-                }
-            });
+                    .catch(err => console.error("Erro ao carregar navbar:", err));
         </script>
         <script>
             // Mostrar opcao de campanhas ativas no form doacao
@@ -215,7 +215,7 @@
                     selectDiv.style.display = 'none';
                 }
             });
-           
+            
             function carregarCampanhas() {
                 fetch('/solidarizacao/api/pontos-coleta') // <-- altere 'solidarizacao' para o nome real do seu projeto no Tomcat
                         .then(response => {
@@ -225,7 +225,7 @@
                         .then(data => {
                             const select = document.getElementById('campanhaSelecionada');
                     select.innerHTML = '';
-                   
+                    
                     if (data.length === 0) {
                         select.innerHTML = '<option value="">Nenhuma campanha disponível</option>';
                     } else {
@@ -244,5 +244,5 @@
                 });
             }
         </script>
-        </body>
+    </body>
 </html> 
